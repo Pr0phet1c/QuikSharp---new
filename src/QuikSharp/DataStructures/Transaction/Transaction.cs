@@ -117,15 +117,18 @@ namespace QuikSharp.DataStructures.Transaction
         public string ErrorMessage { get; set; }
 
         ///////////////////////////////////////////////////////////////////////////////
-        /// 
+        
+#pragma warning disable CS1587 // За XML-комментарием не следует допустимый элемент языка
+///  
         ///  Transaction specification properties start here
-        /// 
+        ///  
         ///////////////////////////////////////////////////////////////////////////////
 
         /// <summary>
         /// Код класса, по которому выполняется транзакция, например TQBR. Обязательный параметр
         /// </summary>
         public string CLASSCODE { get; set; }
+#pragma warning restore CS1587 // За XML-комментарием не следует допустимый элемент языка
 
         /// <summary>
         /// Код инструмента, по которому выполняется транзакция, например SBER
