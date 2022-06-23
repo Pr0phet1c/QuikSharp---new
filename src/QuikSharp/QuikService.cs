@@ -309,11 +309,11 @@ namespace QuikSharp
                                         {
                                             throw new IOException("Lua returned an empty response or closed the connection");
                                         }
-    
+
                                         // No IO exceptions possible for response, move its processing
                                         // to the threadpool and wait for the next mesaage
                                         // A new task here gives c.30% boost for full TransactionSpec echo
-    
+
                                         // ReSharper disable once UnusedVariable
                                         var doNotAwaitMe = Task.Factory.StartNew(r =>
                                         {
@@ -418,11 +418,12 @@ namespace QuikSharp
     
                                         Trace.Assert(readLineTask.Status == TaskStatus.RanToCompletion);
                                         var callback = readLineTask.Result;
+
                                         if (callback == null)
                                         {
                                             throw new IOException("Lua returned an empty response or closed the connection");
                                         }
-    
+
                                         try
                                         {
                                             var message = callback.FromJson(this);
